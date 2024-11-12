@@ -30,6 +30,10 @@ func routes(app *config.AppConfig) http.Handler {
 	mux.Get("/", handlers.Repo.Home)
 	mux.Get("/about", handlers.Repo.About)
 
+	// create file server to let the template find the image file in statics
+	//fileServer := http.FileServer(http.Dir("./static/"))
+	//mux.Handle("/static/*", http.StripPrefix("/static/", fileServer))
+
 	return mux
 
 }
